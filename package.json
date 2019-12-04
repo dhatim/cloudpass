@@ -80,7 +80,7 @@
     "gh-pages-travis": "^1.0.4",
     "gulp": "^4.0.1",
     "gulp-deb": "^0.2.1",
-    "gulp-rename": "^1.4.0",
+    "gulp-rename": "^2.0.0",
     "istanbul": "^1.1.0-alpha.1",
     "merge-stream": "^1.0.1",
     "mocha": "^6.1.4",
