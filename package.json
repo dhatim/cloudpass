@@ -76,7 +76,7 @@
     "dockerode": "^3.0.0",
     "dockerode-promise": "^0.1.0",
     "env-test": "^1.0.0",
-    "eslint": "^5.16.0",
+    "eslint": "^6.8.0",
     "gh-pages-travis": "^1.0.4",
     "gulp": "^4.0.1",
     "gulp-deb": "^0.2.1",
