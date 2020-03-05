@@ -83,7 +83,7 @@
     "gulp-rename": "^1.4.0",
     "istanbul": "^1.1.0-alpha.1",
     "merge-stream": "^1.0.1",
-    "mocha": "^6.1.4",
+    "mocha": "^7.0.1",
     "rewire": "^4.0.1",
     "rimraf": "^3.0.0",
     "smtp-tester": "^1.2.0",
