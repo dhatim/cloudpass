@@ -54,7 +54,7 @@
     "passport-http": "^0.3.0",
     "passport-jwt-cookiecombo": "^1.0.5",
     "pem": "^1.14.2",
-    "pg": "^7.10.0",
+    "pg": "^8.0.0",
     "pg-hstore": "^2.3.2",
     "qr-image": "^3.2.0",
     "randomstring": "^1.1.5",
