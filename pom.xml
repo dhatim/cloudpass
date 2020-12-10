@@ -8,7 +8,7 @@
     <parent>
         <groupId>org.dhatim</groupId>
         <artifactId>root-oss</artifactId>
-        <version>15.2.2</version>
+        <version>20.2.1</version>
     </parent>
 
     <groupId>org.dhatim</groupId>
