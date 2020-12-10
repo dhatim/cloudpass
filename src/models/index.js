@@ -29,6 +29,15 @@ const persistenceOptions = _.merge(
                 const dialect = args[1].sequelize === undefined ? undefined : args[1].sequelize.getDialect();
                 l.debug(AbstractQuery.formatBindParameters(args[0], params, dialect)[0]);
             }
+        },
+        retry: {
+            match: [
+                Sequelize.ConnectionError,
+                Sequelize.ConnectionTimedOutError,
+                Sequelize.TimeoutError,
+                /Deadlock/i,
+                'SQLITE_BUSY'],
+            max: Infinity
         }
     },
     config.get('persistence.options')
