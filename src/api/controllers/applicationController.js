@@ -75,17 +75,19 @@ controller.authenticate = function (req, res) {
             res.json(expandAccountActionResult(account, req.swagger.params.expand.value));
             logger('audit').info('%s successfully logged in to application %s', login, applicationId, {
                 username: login,
-                applicationId,
-                action_status: 'login successul'
+                application_id: applicationId,
+                action_status: 'login successul',
+                ip: req.headers['X-Forwarded-For']
             });
             return null;
         })
         .catch(e => {
             logger('audit').warn('%s failed to log in to application %s (reason: %s)', login, applicationId, e.message, {
                 username: login,
-                applicationId,
+                application_id: applicationId,
                 action_status: 'login failed',
-                reason: e.message
+                reason: e.message,
+                ip: req.headers['X-Forwarded-For']
             });
             req.next(e);
         });
