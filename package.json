@@ -59,7 +59,7 @@
     "qr-image": "^3.2.0",
     "randomstring": "^1.1.5",
     "saml2-js": "^2.0.5",
-    "sequelize": "^5.15.1",
+    "sequelize": "^6.3.5",
     "shimmer": "^1.2.1",
     "speakeasy": "^2.0.0",
     "ssacl": "https://codeload.github.com/msuret/ssacl/tar.gz/1.0.0",
