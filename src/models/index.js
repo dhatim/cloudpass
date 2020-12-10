@@ -37,7 +37,11 @@ const persistenceOptions = _.merge(
 // disable connection pooling because we are using pgbouncer
 // see https://github.com/sequelize/sequelize/issues/10424#issuecomment-520045516
 Sequelize.addHook('afterInit', function (sequelize) {
-    console.log({dialect:sequelize.getDialect()})
+    if (sequelize.getDialect() === 'sqlite') {
+        // sqlite's connection manager does not have a connect() function
+        return;
+    }
+
     sequelize.options.handleDisconnects = false;
 
     // Disable pool completely
