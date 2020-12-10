@@ -34,6 +34,27 @@ const persistenceOptions = _.merge(
     config.get('persistence.options')
 );
 
+// disable connection pooling because we are using pgbouncer
+// see https://github.com/sequelize/sequelize/issues/10424#issuecomment-520045516
+Sequelize.addHook('afterInit', function (sequelize) {
+    if (sequelize.getDialect() === 'sqlite') {
+        // sqlite's connection manager does not have a connect() function
+        return;
+    }
+
+    sequelize.options.handleDisconnects = false;
+
+    // Disable pool completely
+    sequelize.connectionManager.pool.destroyAllNow();
+    sequelize.connectionManager.pool = null;
+    sequelize.connectionManager.getConnection = function getConnection() {
+        return this._connect(sequelize.config);
+    };
+    sequelize.connectionManager.releaseConnection = function releaseConnection(connection) {
+        return this._disconnect(connection);
+    };
+})
+
 const namespace = cls.createNamespace('cloudpass');
 Sequelize.useCLS(namespace);
 const sequelize = new Sequelize(config.persistence.database, config.persistence.username, config.persistence.password, persistenceOptions);
