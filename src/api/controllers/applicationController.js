@@ -77,7 +77,7 @@ controller.authenticate = function (req, res) {
                 username: login,
                 application_id: applicationId,
                 action_status: 'login successul',
-                ip: req.headers['X-Forwarded-For']
+                ip: req.headers['x-forwarded-for']
             });
             return null;
         })
@@ -87,7 +87,7 @@ controller.authenticate = function (req, res) {
                 application_id: applicationId,
                 action_status: 'login failed',
                 reason: e.message,
-                ip: req.headers['X-Forwarded-For']
+                ip: req.headers['x-forwarded-for']
             });
             req.next(e);
         });
