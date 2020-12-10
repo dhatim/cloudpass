@@ -30,7 +30,7 @@ class Message {
             winstonLevel = 'info';
         }
         const level = MESSAGE_LEVEL[winstonLevel];
-        if (level === 'info') {
+        if (winstonLevel === 'info') {
             console.log({info: info});
         }
         this.level = level.value;
