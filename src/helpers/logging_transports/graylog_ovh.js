@@ -30,6 +30,9 @@ class Message {
             winstonLevel = 'info';
         }
         const level = MESSAGE_LEVEL[winstonLevel];
+        if (level === 'info') {
+            console.log({info: info});
+        }
         this.level = level.value;
         this.severity = level.name;
         this.logger = info.label;
