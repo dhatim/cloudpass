@@ -145,7 +145,8 @@ class GraylogOvhTransport extends Transport {
         if (message.tags && Object.keys(message.tags).length > 0) {
             Object.keys(message.tags).forEach(key => {
                 if (key !== 'id') {
-                    graylogMessage[key] = JSON.stringify(message.tags[key]);
+                    const tag = message.tags[key];
+                    graylogMessage[key] = typeof(tag) === 'string' ? tag : JSON.stringify(tag);
                 }
             });
         }
