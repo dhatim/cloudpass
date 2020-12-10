@@ -10,6 +10,7 @@ const email = require('../../helpers/email');
 const models = require('../../models');
 const ApiError = require('../../ApiError');
 const logger = require('../../helpers/loggingHelper').logger;
+const buildTags = require('../../helpers/loggingHelper').buildTags;
 
 const controller = accountStoreController(models.application);
 
@@ -73,26 +74,20 @@ controller.authenticate = function (req, res) {
     )
         .then(function (account) {
             res.json(expandAccountActionResult(account, req.swagger.params.expand.value));
-            logger('audit').info('%s successfully logged in to application %s', login, applicationId, {
-                tags: {
-                    username: login,
+            logger('audit').info('%s successfully logged in to application %s', login, applicationId,
+                buildTags(req, login, {
                     application_id: applicationId,
-                    action_status: 'login successul',
-                    ip: req.headers['x-forwarded-for']
-                }
-            });
+                    action_status: 'login successful',
+                }));
             return null;
         })
         .catch(e => {
-            logger('audit').warn('%s failed to log in to application %s (reason: %s)', login, applicationId, e.message, {
-                tags: {
-                    username: login,
+            logger('audit').warn('%s failed to log in to application %s (reason: %s)', login, applicationId, e.message,
+                buildTags(req, login, {
                     application_id: applicationId,
                     action_status: 'login failed',
-                    reason: e.message,
-                    ip: req.headers['x-forwarded-for']
-                }
-            });
+                    reason: e.message
+                }));
             req.next(e);
         });
 };

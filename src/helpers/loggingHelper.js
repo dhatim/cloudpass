@@ -134,3 +134,19 @@ exports.fromConfig = function (winstonConf, callback) {
 exports.logger = function (loggerName) {
     return winston.loggers.get(loggerName);
 }
+
+exports.buildTags = function (req, username, tags) {
+    const ipList = req.headers['x-forwarded-for'];
+    let ip = undefined;
+    if (ipList) {
+        const a = ipList.split(',').map(Function.prototype.call, String.prototype.trim);
+        ip = a[0];
+    }
+    const result = {
+        username: username,
+        ip: ip
+    };
+    return {
+        tags: Object.assign(result, tags || {})
+    };
+}
