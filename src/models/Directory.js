@@ -6,7 +6,7 @@ const email = require('../helpers/email');
 const Optional = require('optional-js');
 const ModelDecorator = require('./helpers/ModelDecorator');
 const logger = require('../helpers/loggingHelper').logger;
-const hrefHelper = require('../../helpers/hrefHelper');
+const hrefHelper = require('../helpers/hrefHelper');
 
 module.exports = function (sequelize, DataTypes) {
     return new ModelDecorator(
