@@ -233,7 +233,7 @@ module.exports = function (sequelize, DataTypes) {
             }
         })
         .withSearchableAttributes('id', 'email', 'username', 'givenName', 'middleName', 'surname', 'status')
-        .withSettableAttributes('email', 'username', 'password', 'givenName', 'middleName', 'surname', 'passwordAuthenticationAllowed', 'status', 'customData')
+        .withSettableAttributes('id', 'email', 'username', 'password', 'givenName', 'middleName', 'surname', 'passwordAuthenticationAllowed', 'status', 'customData')
         .withCustomData()
         .end();
 };
