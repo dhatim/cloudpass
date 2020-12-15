@@ -155,7 +155,7 @@ function createNewAccount(attributes, registrationWorflowEnabled, authInfo, apiK
     const models = this.sequelize.models;
 
     //build the new account
-    if (authInfo.inv_href) {
+    if (authInfo && authInfo.inv_href) {
         // if this is an invited account, set the new account id to the invitation id
         _.assign(attributes, {id: hrefHelper.resolveHref(authInfo.inv_href).id});
     }
