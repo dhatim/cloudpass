@@ -6,6 +6,7 @@ const email = require('../helpers/email');
 const Optional = require('optional-js');
 const ModelDecorator = require('./helpers/ModelDecorator');
 const logger = require('../helpers/loggingHelper').logger;
+const hrefHelper = require('../../helpers/hrefHelper');
 
 module.exports = function (sequelize, DataTypes) {
     return new ModelDecorator(
@@ -154,6 +155,10 @@ function createNewAccount(attributes, registrationWorflowEnabled, authInfo, apiK
     const models = this.sequelize.models;
 
     //build the new account
+    if (attributes.inv_href) {
+        // if this is an invited account, set the new account id to the invitation id
+        _.assign(attributes, {id: hrefHelper.resolveHref(attributes.inv_href).id});
+    }
     console.log({attributes: attributes, registrationWorflowEnabled: registrationWorflowEnabled, authInfo: authInfo});
     const account = models.account.build(
         _(attributes)
