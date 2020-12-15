@@ -48,6 +48,7 @@ app.post('/', function (req, res) {
                     .then(function (directory) {
                         return directory.createNewAccount(
                             {
+                                id: req.query.cpToken,
                                 givenName: req.body.givenName,
                                 surname: req.body.surname,
                                 email: invitation.email,
