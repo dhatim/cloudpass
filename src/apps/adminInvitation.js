@@ -46,10 +46,8 @@ app.post('/', function (req, res) {
                     where: {name: 'Cloudpass Administrators'}
                 })
                     .then(function (directory) {
-                        console.log({invitationId: req.body.invitationId});
                         return directory.createNewAccount(
                             {
-                                id: req.body.invitationId,
                                 givenName: req.body.givenName,
                                 surname: req.body.surname,
                                 email: invitation.email,

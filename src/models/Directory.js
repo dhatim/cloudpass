@@ -154,6 +154,7 @@ function createNewAccount(attributes, registrationWorflowEnabled, authInfo, apiK
     const models = this.sequelize.models;
 
     //build the new account
+    console.log({attributes: attributes, registrationWorflowEnabled: registrationWorflowEnabled, authInfo: authInfo});
     const account = models.account.build(
         _(attributes)
             .pick(models.account.settableAttributes)
