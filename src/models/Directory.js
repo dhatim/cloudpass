@@ -159,7 +159,6 @@ function createNewAccount(attributes, registrationWorflowEnabled, authInfo, apiK
         // if this is an invited account, set the new account id to the invitation id
         _.assign(attributes, {id: hrefHelper.resolveHref(authInfo.inv_href).id});
     }
-    console.log({attributes: attributes, registrationWorflowEnabled: registrationWorflowEnabled, authInfo: authInfo});
     const account = models.account.build(
         _(attributes)
             .pick(models.account.settableAttributes)
