@@ -14,6 +14,9 @@ COPY package.json .
 COPY package-lock.json .
 RUN npm install --production
 RUN npm install sqlite3
+RUN apt-get remove --assume-yes --purge python build-essential \
+    && apt-get autoremove --assume-yes --purge \
+    && apt-get clean
 COPY swagger swagger/
 COPY migrations migrations/
 COPY src src/
