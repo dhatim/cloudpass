@@ -5,7 +5,6 @@ ENV NODE_APP_INSTANCE=docker
 
 RUN apt-get update \
 	&& apt-get --assume-yes dist-upgrade \
-	&& apt-get --assume-yes --no-install-recommends install build-essential python \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /app
