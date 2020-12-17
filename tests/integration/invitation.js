@@ -115,15 +115,6 @@ describe('invitation', () => {
 
     it('idSite request', () => idSiteRequestWithInvitation(invitedEmail));
 
-    it('with Callback URI and nonexistent account', () => createInvitationWithCbUri(invitedEmail, 'register'));
-
-    it('with Callback URI and existing account', () =>
-        init.postRequest('invitations/' + invitationId)
-            .send({email: init.adminUser})
-            .expect(200)
-            .then(() => createInvitationWithCbUri(init.adminUser, ''))
-    );
-
     it('delete', () => init.deleteRequest('invitations/' + invitationId).expect(204));
 
 });
