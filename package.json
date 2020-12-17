@@ -47,7 +47,6 @@
     "morgan": "^1.9.1",
     "nocache": "^2.0.0",
     "node-appinfo": "^0.2.3",
-    "node-pre-gyp": "^0.17.0",
     "nodemailer": "^6.1.1",
     "nodemailer-mandrill-transport": "^1.2.0",
     "optional-js": "^2.1.1",
