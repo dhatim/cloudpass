@@ -99,8 +99,7 @@ controller.update = function (req, res) {
             models.invitation,
             req.swagger.params.id.value,
             req.swagger.params.newAttributes.value
-        )
-            .tap(invitation => sendEmail(invitation, req.user)),
+        ),
         req,
         res,
         true
