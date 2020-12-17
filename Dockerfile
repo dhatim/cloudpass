@@ -1,10 +1,11 @@
-FROM node:10-slim
+FROM node:14-buster-slim
 
 ENV NODE_ENV=production
 ENV NODE_APP_INSTANCE=docker
 
 RUN apt-get update \
 	&& apt-get --assume-yes --no-install-recommends install openssl \
+	&& apt-get --assume-yes dist-upgrade \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /app
