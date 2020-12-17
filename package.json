@@ -37,7 +37,7 @@
     "deepcopy": "^2.0.0",
     "es6-error": "^4.1.1",
     "express": "^4.16.4",
-    "gc-stats": "^1.2.1",
+    "gc-stats": "^1.4.0",
     "health-checkup": "^1.0.21",
     "isemail": "^3.2.0",
     "js-yaml": "^3.13.1",
