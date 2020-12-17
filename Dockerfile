@@ -1,4 +1,4 @@
-FROM node:14-buster-slim
+FROM node:12-buster-slim
 
 ENV NODE_ENV=production
 ENV NODE_APP_INSTANCE=docker
