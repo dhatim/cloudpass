@@ -5,11 +5,13 @@ ENV NODE_APP_INSTANCE=docker
 
 RUN apt-get update \
 	&& apt-get --assume-yes dist-upgrade \
+	&& apt-get --assume-yes --no-install-recommends install python build-essential \
 	&& rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /app
 WORKDIR /app
 COPY package.json .
+COPY package-lock.json .
 RUN npm install --production
 RUN npm install sqlite3
 COPY swagger swagger/
